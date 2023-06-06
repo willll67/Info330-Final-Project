@@ -5,9 +5,7 @@ CREATE TABLE Countries (
 );
 CREATE TABLE Athletes (
     AthleteID INTEGER PRIMARY KEY,
-    FirstName TEXT NOT NULL,
-    MiddleName TEXT,
-    LastName TEXT NOT NULL,
+    Name TEXT NOT NULL,
     Sex TEXT NOT NULL,
     Age INTEGER,
     Height TEXT,
@@ -30,3 +28,5 @@ CREATE TABLE Games (
     Season TEXT,
     City TEXT
 );
+ALTER TABLE athlete_events
+DROP COLUMN Games;

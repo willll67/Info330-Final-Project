@@ -2,15 +2,14 @@ INSERT INTO Countries (CountryName, NOC)
 SELECT DISTINCT Team, NOC
 FROM athlete_events;
 
-INSERT INTO Athletes (FirstName, MiddleName, LastName, Sex, Age, Height, Weight, Team, CountryID)
-SELECT FirstName, MiddleName, LastName, Sex, Age, Height, Weight, Team, CountryID
+INSERT INTO Athletes (Name, Sex, Age, Height, Weight, Team, CountryID)
+SELECT Name, Sex, Age, Height, Weight, Team, CountryID
 FROM athlete_events
 INNER JOIN Countries ON athlete_events.Team = Countries.CountryName AND athlete_events.NOC = Countries.NOC;
 
 INSERT INTO Medals (MedalType)
 SELECT DISTINCT Medal
-FROM athlete_events
-WHERE Medal IS NOT NULL;
+FROM athlete_events;
 
 INSERT INTO Events (EventName)
 SELECT DISTINCT Event
